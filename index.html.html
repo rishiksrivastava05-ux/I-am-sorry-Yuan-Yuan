@@ -1,0 +1,268 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Sorry, Yuan Yuan 😭</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        min-height: 100vh;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #fff1f5, #ffe4ec, #fce7f3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        color: #4a2633;
+    }
+
+    .card {
+        width: min(90%, 430px);
+        padding: 35px 28px;
+        background: rgba(255,255,255,0.82);
+        backdrop-filter: blur(12px);
+        border-radius: 28px;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(100, 30, 50, 0.15);
+        position: relative;
+        z-index: 2;
+        animation: appear 1s ease;
+    }
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+            transform: translateY(30px) scale(.95);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .emoji {
+        font-size: 60px;
+        animation: bounce 1.8s infinite;
+    }
+
+    @keyframes bounce {
+        50% { transform: translateY(-8px); }
+    }
+
+    h1 {
+        margin: 15px 0 8px;
+        font-size: 32px;
+    }
+
+    .subtitle {
+        color: #9b526c;
+        margin-bottom: 25px;
+        font-size: 15px;
+    }
+
+    .message {
+        text-align: left;
+        line-height: 1.7;
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    .highlight {
+        font-weight: 700;
+        color: #c24669;
+    }
+
+    .funny {
+        background: #fff0f4;
+        padding: 15px;
+        border-radius: 18px;
+        margin: 20px 0;
+        font-size: 14px;
+    }
+
+    button {
+        border: none;
+        padding: 14px 24px;
+        border-radius: 999px;
+        background: #d9577a;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: .25s;
+        box-shadow: 0 8px 20px rgba(217,87,122,.25);
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        background: #c94668;
+    }
+
+    #response {
+        display: none;
+        margin-top: 22px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #c24669;
+        animation: appear .6s ease;
+    }
+
+    .heart {
+        position: absolute;
+        bottom: -30px;
+        font-size: 20px;
+        opacity: .55;
+        animation: floatUp linear infinite;
+        z-index: 1;
+    }
+
+    @keyframes floatUp {
+        from {
+            transform: translateY(0) rotate(0);
+            opacity: .1;
+        }
+        20% { opacity: .6; }
+        to {
+            transform: translateY(-110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .signature {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #8b5363;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="emoji">🥺</div>
+
+    <h1>I'm Really Sorry, Yuan Yuan 😭</h1>
+
+    <div class="subtitle">
+        Okay... I admit it. I messed up. 🥲
+    </div>
+
+    <div class="message">
+
+        <p>
+            Yuan Yuan, I genuinely want to say
+            <span class="highlight">I'm sorry.</span>
+        </p>
+
+        <br>
+
+        <p>
+            I'm sorry for replying so late, and especially
+            for lying. I know that wasn't right, and I understand
+            if it hurt you or made you lose some trust in me.
+        </p>
+
+        <br>
+
+        <p>
+            I don't want to make excuses for it.
+            <span class="highlight">I was wrong.</span>
+            😭
+        </p>
+
+    </div>
+
+    <div class="funny">
+        🧠 My brain: "Let's make a bad decision."
+
+        <br><br>
+
+        Me: "Okay."
+
+        <br><br>
+
+        🧠 My brain: "REGRET IT LATER."
+
+        <br>
+
+        Me: 😭😭😭
+    </div>
+
+    <div class="message">
+
+        <p>
+            But seriously, I'm really sorry.
+            I don't want to repeat this mistake again.
+        </p>
+
+        <br>
+
+        <p>
+            <span class="highlight">
+                Please forgive me. I will never do that again. 😭😭
+            </span>
+        </p>
+
+        <br>
+
+        <p>
+            I know saying sorry doesn't automatically fix everything,
+            so I'll try to prove it through my actions too.
+        </p>
+
+    </div>
+
+    <button onclick="forgive()">
+        Forgive me? 🥺👉👈
+    </button>
+
+    <div id="response">
+        YAY 😭❤️ Thank you, Yuan Yuan!<br><br>
+        I promise I'll do better. 🫂
+    </div>
+
+    <div class="signature">
+        — From someone who is currently regretting everything 😭
+    </div>
+
+</div>
+
+<script>
+function forgive() {
+    document.getElementById("response").style.display = "block";
+    document.querySelector("button").innerText = "THANK YOU 😭❤️";
+}
+
+const emojis = ["❤️", "💗", "💕", "🌸", "🥺"];
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 6) + "s";
+    heart.style.fontSize = (15 + Math.random() * 18) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 11000);
+}
+
+setInterval(createHeart, 600);
+</script>
+
+</body>
+</html>
+```
